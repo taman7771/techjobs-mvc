@@ -11,8 +11,51 @@
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
 
     <!-- TODO #3 - Use the same list display from search.html -->
+    <div>
+        <h3 th:text="${size}+' Result(s)'"> </h3>
+
+        <div>
+
+            <table th:each="job : ${jobs}" th:class="job-listing">
+
+                <tr>
+                    <td>Position Type</td>
+                    <td th:text="${job['position type']}">Position Type</td>
+                </tr>
+                <tr>
+                    <td>Name</td>
+                    <td th:text="${job.name}">Name</td>
+                </tr>
+                <tr>
+                    <td>Employer</td>
+                    <td th:text="${job.employer}">Employer</td>
+                </tr>
+                <tr>
+                    <td>Location</td>
+                    <td th:text="${job.location}">Location</td>
+                </tr>
+                <tr>
+                    <td>Core Competency</td>
+                    <td th:text="${job['core competency']}">Core Competency</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
 
 </div>
 
 </body>
 </html>
+
+<!--
+    <table>
+        <tr th:each="job : ${jobs}">
+            <td th:text="${job['position type']}">Position Type</td>
+            <td th:text="${job.name}">Name</td>
+            <td th:text="${job.employer}">Employer</td>
+            <td th:text="${job.location}">Location</td>
+            <td th:text="${job['core competency']}">Core Competency</td>
+        </tr>
+    </table>
+-->
